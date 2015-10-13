@@ -17,16 +17,9 @@ int dmit(int th, int tm, int fh, int fm)
     return 60 * (th + fh - 9) + tm + fm;
 }
 
-double petr(int lac, int lbc, int lab, int w, int d)
+double petr(int lab, int w, int d)
 {
-    double t= 60 * lab / w;
-    
-    if ( lac + lbc == lab )
-    {
-        t += d;
-    }
-
-    return t;
+    return 60 * lab / w + d;
 }
 
 int main(int argc, char const *argv[])
@@ -38,17 +31,19 @@ int main(int argc, char const *argv[])
     int lac, lbc, lab;
     double a, p;
 
-    scanf("%i%i%i%i%i%i", &xa, &ya, &xb, &yb, &xc, &yc);
-    scanf("%i%i", &d, &v);
-    scanf("00%02i:%02i %02i:%02i", &th, &tm, &fh, &fm);
-    scanf("%i", &w);
+    scanf("%d%d%d%d%d%d", &xa, &ya, &xb, &yb, &xc, &yc);
+    scanf("%d%d%02d:%02d %02d:%02d", &d, &v, &th, &tm, &fh, &fm);
+    scanf("%d", &w);
 
     lac = len2(xc - xa, yc - ya),
     lbc = len2(xc - xb, yc - yb),
     lab = len2(xb - xa, yb - ya);
 
     a = alex(lac, lbc, v, d);
-    p = petr(lac, lbc, lab, w, d);
+
+    if ( (xc - xa) * (yb - yc) == (yc - ya) * (xb - xc) ) d = 0;
+
+    p = petr(lab, w, d);
     d = dmit(th, tm, fh, fm);
 
     if ( a < p )
