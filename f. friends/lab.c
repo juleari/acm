@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
 
     a = alex(lac, lbc, v, d);
 
-    if ( (xc - xa) * (yb - yc) == (yc - ya) * (xb - xc) ) d = 0;
+    if ( (xc - xa) * (yb - yc) != (yc - ya) * (xb - xc) ) d = 0;
 
     p = petr(lab, w, d);
     d = dmit(th, tm, fh, fm);
