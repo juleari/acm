@@ -2,12 +2,12 @@
 #include <math.h>
 
 
-int len2(int x, int y)
+double len2(int x, int y)
 {
     return sqrt( x * x + y * y );
 }
 
-double alex(int lac, int lbc, int v, int d)
+double alex(double lac, double lbc, int v, int d)
 {
     return d + 60 * (lac + lbc) / v;
 }
@@ -17,7 +17,7 @@ int dmit(int th, int tm, int fh, int fm)
     return 60 * (th + fh - 9) + tm + fm;
 }
 
-double petr(int lab, int w, int d)
+double petr(double lab, int w, int d)
 {
     return 60 * lab / w + d;
 }
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     int d, v;
     int th, tm, fh, fm;
     int w;
-    int lac, lbc, lab;
+    double lac, lbc, lab;
     double a, p;
 
     scanf("%d%d%d%d%d%d", &xa, &ya, &xb, &yb, &xc, &yc);

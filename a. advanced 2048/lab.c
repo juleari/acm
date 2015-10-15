@@ -43,6 +43,7 @@ long int gameIter( char c, int n )
                         }
                         else
                         {
+                            if ( l > 0 ) { k++; }
                             h[i][k] = cur;
                             l         = cur;
                         }
@@ -70,8 +71,9 @@ long int gameIter( char c, int n )
                         }
                         else
                         {
+                            if ( l > 0 ) { k--; }
                             h[i][k] = cur;
-                            l         = cur;
+                            l       = cur;
                         }
                     }
                 }
@@ -97,6 +99,7 @@ long int gameIter( char c, int n )
                         }
                         else
                         {
+                            if ( l > 0 ) { k++; }
                             h[k][j] = cur;
                             l         = cur;
                         }
@@ -124,6 +127,7 @@ long int gameIter( char c, int n )
                         }
                         else
                         {
+                            if ( l > 0 ) { k--; }
                             h[k][j] = cur;
                             l         = cur;
                         }
@@ -182,6 +186,9 @@ int main()
     {
         scanf("\n%c%d%d%d", &c, &v, &x, &y);
         score += gameIter(c, n);
+
+        // printH(n);
+
         h[ x - 1 ][ y - 1 ] = getpow(v);
     }
 
